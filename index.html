@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Mano Amiga</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Mano Amiga">
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Buscar en Mano Amiga">
+      <button onclick="buscarProducto()"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="user-options">
+      <button onclick="abrirLoginModal()"><i class="fas fa-user"></i></button>
+      <button><i class="fas fa-shopping-cart"></i></button>
+      <button id="admin-button" style="display: none;" onclick="abrirAgregarProductoModal()">Admin</button>
+    </div>
+  </header>
+
+  <nav>
+    <div class="delivery-options">
+      <span>Ayudándote y ayudando al planeta</span>
+    </div>
+  </nav>
+
+  <main>
+    <div class="product-grid" id="product-grid">
+      <!-- Productos dinámicamente generados aquí -->
+    </div>
+  </main>
+
+  <!-- Popup de Login/Registro -->
+  <div class="popup" id="loginModal" style="display: none;">
+    <div class="popup-content">
+      <span class="close" onclick="cerrarPopup('loginModal')">&times;</span>
+      <h2>Iniciar sesión o Registrarse</h2>
+      <input type="text" id="username" placeholder="Nombre de usuario">
+      <input type="password" id="password" placeholder="Contraseña">
+      <button onclick="iniciarSesion()">Iniciar Sesión</button>
+      <button onclick="registrarse()">Registrarse</button>
+    </div>
+  </div>
+
+  <!-- Popup para Agregar Productos -->
+  <div class="popup" id="addProductModal" style="display: none;">
+    <div class="popup-content">
+      <span class="close" onclick="cerrarPopup('addProductModal')">&times;</span>
+      <h2>Agregar Producto</h2>
+      <input type="text" id="productImageUrl" placeholder="URL de la imagen">
+      <input type="text" id="productName" placeholder="Nombre del producto">
+      <input type="number" id="productPrice" placeholder="Precio del producto">
+      <input type="date" id="productExpirationDate" placeholder="Fecha de vencimiento">
+      <button onclick="agregarProducto()">Agregar Producto</button>
+    </div>
+  </div>
+
+  <!-- Popup para Términos y Condiciones -->
+  <div class="popup" id="terminosModal" style="display: none;">
+    <div class="popup-content">
+      <span class="close" onclick="cerrarPopup('terminosModal')">&times;</span>
+      <h2>Términos y Condiciones</h2>
+      <p>Mano Amiga es una plataforma de venta de productos con descuento, aplicada según la cercanía de la fecha de caducidad, con el fin de ofrecer precios accesibles y reducir el desperdicio. Al usar el sitio, los usuarios se comprometen a fines personales, cumplir leyes y evitar dañar la plataforma.
+
+        Los descuentos aumentan conforme se acerca la caducidad. Los productos se venden "tal cual", y es responsabilidad del usuario revisar la fecha antes de comprar. Las devoluciones solo se aceptan si el producto llega en mal estado antes de la fecha de caducidad o si hay discrepancias en el pedido.</p>
+    </div>
+  </div>
+
+  <!-- Popup para Miembros del Proyecto -->
+  <div class="popup" id="miembrosModal" style="display: none;">
+    <div class="popup-content">
+      <span class="close" onclick="cerrarPopup('miembrosModal')">&times;</span>
+      <h2>Miembros del Proyecto</h2>
+      <p>*Leidy Yuliana Pérez Navia<p>
+        <p>*David Esteban Muñoz Castrillón<p>
+            <p>*Elizabeth Beltrán Padilla<p>
+                <p>(VR) diseñador de APP :-)</p>
+    </div>
+  </div>
+
+  <!-- Footer con Términos y Condiciones y Miembros del Proyecto -->
+  <footer>
+    <div class="footer-content">
+      <a href="#" onclick="abrirPopup('terminosModal')">Términos y Condiciones</a>
+      <a href="#" onclick="abrirPopup('miembrosModal')">Miembros del Proyecto</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
